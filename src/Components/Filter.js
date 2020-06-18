@@ -1,22 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-const Filter = ({ value, filterChange }) => {
+import React from 'react';
+import PropTypes from 'prop-types';
+export default function Filter({ value, onChangeFilter }) {
   return (
     <div>
-      <h2>Contacts </h2>
+      <p>Find contacts by name</p>
       <input
         type="text"
+        className="TaskEditor-input"
         value={value}
-        onChange={(e) => filterChange(e.target.value)}
+        onChange={e => onChangeFilter(e.target.value)}
       />
     </div>
   );
-};
-
+}
 Filter.propTypes = {
-  filterChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
+  onChangeFilter: PropTypes.elementType.isRequired,
 };
-
-export default Filter;
